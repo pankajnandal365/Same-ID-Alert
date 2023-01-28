@@ -1,0 +1,15 @@
+body{
+    background-color: aqua;
+}
+tr > * + *{
+ padding-left: 37em;
+}
+.container{
+    justify-content: center;
+    margin-left: 400px;
+
+
+}
+#tab{
+    border: 2px solid black;
+}

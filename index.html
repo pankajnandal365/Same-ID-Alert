@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="style.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+</head>
+
+<body>
+
+    <div class="container">
+        Id: <input type="number" id="id">
+        Name:<input type="text" id="name">
+        <button onclick="func()">Submit</button>
+    </div><br><br>
+    <table id="tab"></table>
+    <script>
+        var arr = [];
+        var table = document.getElementById("tab");
+        function func() {
+            table.innerHTML = `<tr><th>Radio</th><th>Id</th><th>Name</th></tr>`
+            var obj = {};
+            obj.id = $("#id").val();
+            obj.name = $("#name").val();
+            if (obj.id != "" && obj.name != "") {
+                arr.unshift(obj)
+                arr.forEach(function func(value) {
+                    var tr = document.createElement('tr')
+                    tr.innerHTML =
+                    `<td><input type='radio' name='rad' id='${value.id}' onclick= 'alert1(this)'/></td>
+                     <td id='i${value.id}'> ${value.id} </td>
+                     <td id='n${value.name}'> ${value.name} </td>`;
+                    {
+                        table.append(tr);
+                    }
+                })
+            }
+        }
+        function alert1(pp) {
+            var a = $(pp).attr('id');
+            alert($("#i" + a).text());
+        }
+
+    </script>
+</body>
+
+</html>
